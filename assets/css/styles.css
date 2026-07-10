@@ -45,6 +45,7 @@
 html { scroll-behavior: smooth; }
 body, button, input, textarea { font-family: var(--body-font); font-size: var(--normal-font-size); }
 body { background: radial-gradient(circle at top left, hsla(36, 42%, 71%, .3), transparent 32rem), var(--body-color); color: var(--text-color); transition: .4s; }
+body.modal-open { overflow: hidden; }
 h1, h2, h3 { color: var(--title-color); font-weight: var(--font-semibold); }
 ul { list-style: none; }
 a { text-decoration: none; }
@@ -140,8 +141,9 @@ body.light-theme {
 .services__button { color: var(--text-color); font-size: var(--small-font-size); display: flex; align-items: center; column-gap: .25rem; cursor: pointer; }
 .services__button:hover .services__icon { transform: translateX(.25rem); }
 .services__icon { font-size: 1rem; transition: .4s; }
-.services__modal { position: fixed; inset: 0; background-color: hsla(36, 20%, 60%, .72); padding: 2rem 1rem; display: grid; place-items: center; visibility: hidden; opacity: 0; transition: .4s; z-index: var(--z-modal); }
-.services__modal-content { position: relative; background-color: var(--body-color); padding: 4.5rem 1.5rem 2.5rem; border-radius: 1.5rem; max-width: 520px; }
+.services__modal { position: fixed; inset: 0; background-color: hsla(36, 20%, 60%, .72); padding: 5rem 1rem 6.5rem; display: grid; place-items: center; visibility: hidden; opacity: 0; overflow-y: auto; transition: .4s; z-index: var(--z-modal); }
+.light-theme .services__modal { background-color: hsla(var(--second-hue), 43%, 7%, .58); }
+.services__modal-content { position: relative; width: min(100%, 520px); max-height: calc(100vh - 11.5rem); overflow-y: auto; background-color: var(--body-color); padding: 4.5rem 1.5rem 2.5rem; border-radius: 1.5rem; }
 .services__modal-title, .services__modal-description { text-align: center; }
 .services__modal-title { font-size: var(--h3-font-size); color: var(--text-color); margin-bottom: 1rem; }
 .services__modal-description { font-size: var(--small-font-size); margin-bottom: 2rem; }

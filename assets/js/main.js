@@ -8,22 +8,35 @@ const modalViews = document.querySelectorAll(".services__modal");
 const modalBtns = document.querySelectorAll(".services__button");
 const modalClose = document.querySelectorAll(".services__modal-close");
 
+modalViews.forEach((modal) => document.body.appendChild(modal));
+
+const closeServicesModals = () => {
+  modalViews.forEach((modal) => modal.classList.remove("active-modal"));
+  document.body.classList.remove("modal-open");
+};
+
 modalBtns.forEach((button, index) => {
   button.addEventListener("click", () => {
+    closeServicesModals();
     modalViews[index].classList.add("active-modal");
+    document.body.classList.add("modal-open");
   });
 });
 
 modalClose.forEach((closeButton) => {
   closeButton.addEventListener("click", () => {
-    modalViews.forEach((modal) => modal.classList.remove("active-modal"));
+    closeServicesModals();
   });
 });
 
 modalViews.forEach((modal) => {
   modal.addEventListener("click", (event) => {
-    if (event.target === modal) modal.classList.remove("active-modal");
+    if (event.target === modal) closeServicesModals();
   });
+});
+
+window.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") closeServicesModals();
 });
 
 if (window.mixitup) {
