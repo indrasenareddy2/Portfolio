@@ -1,5 +1,3 @@
-import Link from "next/link";
-import { ArrowRight } from "@/components/ui/Icons";
 import { SectionIcon, type SectionIconName } from "@/components/sections/SectionIcon";
 import { Workspace } from "@/components/sections/Workspace";
 import styles from "@/components/sections/ReferenceSections.module.css";
@@ -29,7 +27,6 @@ export function About() {
             <li><SectionIcon name="document" /><strong>{projects.length}</strong><span>Major projects</span></li>
             <li><SectionIcon name="settings" /><strong className={styles.endToEnd}>End-to-end</strong><span>AI systems</span></li>
           </ul>
-          <Link href="/#projects" className={styles.textLink}>Explore my work <ArrowRight width={17} height={17} /></Link>
         </div>
         <div className={styles.capabilities} aria-label="Areas of focus">
           {capabilities.map(({ label, icon, className }) => (

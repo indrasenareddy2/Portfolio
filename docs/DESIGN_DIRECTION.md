@@ -23,7 +23,8 @@ cyan accent bars. Copy is deliberately short. Detail lives on the case-study pag
 | 03 | Experience | Onusworks, VCodez (one line + work tracks), education + certifications |
 | 04 | AI Lab | 7 compact experiment cards with status and repo links |
 | 05 | Skills | Interactive ecosystem: select a tool to see where it shipped |
-| 06 | Contact | Avatar ring, "Let's build something intelligent.", email / resume / socials |
+| 06 | Learning | Education & Certifications: tilted glass degree card with a 3D cap, staggered credential cards on a glowing connector |
+| — | Contact | Avatar ring, "Let's build something intelligent.", email / resume / socials |
 
 Case studies (`/projects/[slug]`): Problem → Constraints → Architecture → Contribution → Decisions → Stack → Outcome.
 

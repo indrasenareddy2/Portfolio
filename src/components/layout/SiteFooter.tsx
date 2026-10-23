@@ -9,7 +9,6 @@ export function SiteFooter() {
       <div className={styles.hero}>
         <div className={styles.scene}><FooterScene /></div>
         <div className={styles.inner}>
-          <a href={asset("/")} className={styles.brand} aria-label={`${profile.shortName}, home`}>TIR<span aria-hidden="true" /></a>
           <div className={styles.copy}>
             <h2>Building a<span>Smarter Tomorrow<b>.</b></span></h2>
             <span className={styles.accent} aria-hidden="true" />

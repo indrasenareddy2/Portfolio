@@ -42,12 +42,13 @@
 .experienceIntro { padding-top: 76px; }
 .largeTitle { font-size: clamp(40px, 5vw, 76px); font-weight: 730; letter-spacing: -.04em; line-height: 1.1; }
 .sectionSubtitle { margin-top: 18px; color: #a3c2e6; font-size: clamp(13px, 1.3vw, 20px); line-height: 1.8; letter-spacing: .16em; }
+.timelineWrap { position: relative; }
+.timelineConnector { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; z-index: 0; }
+.timelineConnector path { fill: none; stroke: #00d8f3; stroke-width: 2; stroke-linecap: round; filter: drop-shadow(0 0 6px #00d8f366); }
 .timeline { position: relative; display: grid; grid-auto-rows: 1fr; gap: 30px; padding-left: 20px; }
-.timeline::before { content: ""; position: absolute; width: 75px; left: -55px; top: 81px; height: calc(50% + 15px); border: 2px solid #00d8f3; border-right: 0; border-radius: 65px 0 0 65px; filter: drop-shadow(0 0 6px #00d8f366); }
-.roleCard { position: relative; padding: 28px 32px 20px; border: 1px solid #04d8fc; border-radius: 21px; background: linear-gradient(125deg, #041622db, #050d19e8 58%, #142746c9); box-shadow: 0 0 18px #00d8f32b, inset 0 0 24px #0d84b315; backdrop-filter: blur(15px); }
+.roleCard { position: relative; z-index: 1; padding: 28px 32px 20px; border: 1px solid #04d8fc; border-radius: 21px; background: linear-gradient(125deg, #041622db, #050d19e8 58%, #142746c9); box-shadow: 0 0 18px #00d8f32b, inset 0 0 24px #0d84b315; backdrop-filter: blur(15px); }
 .roleCard:nth-child(2) { margin-left: 35px; border-color: #72e8ff; box-shadow: 0 0 19px #1895ef35, inset -10px -10px 30px #7660f51a; }
-.roleCard:nth-child(2)::before { content: ""; position: absolute; left: -36px; top: 81px; width: 35px; border-top: 2px solid #00d8f3; filter: drop-shadow(0 0 6px #00d8f366); }
-.timelineDot { position: absolute; width: 18px; height: 18px; left: -10px; top: 73px; border-radius: 50%; background: #8df7ff; box-shadow: 0 0 14px 5px #00dafb65; }
+.timelineDot { z-index: 2; position: absolute; width: 18px; height: 18px; left: -10px; top: 73px; border-radius: 50%; background: #8df7ff; box-shadow: 0 0 14px 5px #00dafb65; }
 .roleTop { display: flex; align-items: center; gap: 24px; }
 .companyMark { width: 80px; height: 80px; flex-shrink: 0; display: grid; place-items: center; border: 1px solid #22749f9c; border-radius: 17px; background: linear-gradient(140deg, #062c42, #050b15 80%); }
 .onusMark { display: block; width: 47px; height: 47px; border: 11px solid transparent; border-radius: 50%; background: linear-gradient(#061421, #061421) padding-box, conic-gradient(#7748ff, #00dfff, #0070e6, #7748ff) border-box; position: relative; }
@@ -60,17 +61,6 @@
 .roleBullets li { display: flex; align-items: baseline; gap: 15px; font-size: 13px; color: #e0eaf6; line-height: 1.65; }
 .roleBullets li::before { content: ""; display: block; flex: 0 0 8px; width: 8px; height: 8px; border-radius: 50%; background: #00e9f3; box-shadow: 0 0 9px #00d8f388; }
 .roleLocation { display: block; padding-left: 23px; margin-top: 13px; font-size: 10px; letter-spacing: .06em; color: #9aacca; }
-.credentials { background: #06111edb; border: 1px solid #28465d88; border-radius: 14px; margin-top: 35px; }
-.credentials summary { display: flex; align-items: center; gap: 12px; cursor: pointer; padding: 18px 24px; color: #c0d0e5; font-size: 13px; list-style: none; }
-.credentials summary::-webkit-details-marker { display: none; }
-.credentials summary > svg { color: var(--section-cyan); }
-.credentials summary > span { margin-left: auto; display: flex; gap: 18px; font-size: 11px; color: #8faccc; }
-.credentialsContent { display: grid; grid-template-columns: 1fr 1.6fr; gap: 40px; padding: 12px 28px 28px; font-size: 13px; line-height: 1.8; color: #a7b8cd; }
-.credentialsContent h3 { color: #edf4fc; font-size: 16px; margin-top: 12px; }
-.credentialsContent ul { display: grid; gap: 10px; margin-top: 12px; }
-.credentialsContent li > span { display: block; color: #6d87a6; font-size: 11px; }
-.credentialsContent a { display: inline-flex; align-items: center; gap: 6px; }
-.credentialsContent a:hover { color: var(--section-cyan); }
 .contact { min-height: 800px; padding-block: 110px 170px; display: flex; align-items: center; }
 .contact .inner { min-height: 490px; }
 .contactCopy { width: 49%; position: relative; z-index: 2; }
@@ -190,12 +180,10 @@
   .experienceGrid { gap: 35px; grid-template-columns: .85fr 1.2fr; }
   .roleCard { padding: 23px; }
   .roleCard:nth-child(2) { margin-left: 18px; }
-  .roleCard:nth-child(2)::before { left: -19px; width: 18px; }
   .roleTop { gap: 17px; }
   .companyMark { width: 65px; height: 65px; }
   .roleBullets li { font-size: 12px; gap: 10px; }
   .roleTitle { letter-spacing: .12em; font-size: 9px; }
-  .timeline::before { left: -30px; width: 50px; }
   .projectStage { grid-template-columns: 1fr 1.5fr .7fr; gap: 15px; }
   .projectTitle { font-size: 40px; }
   .monitorFrame { min-height: 375px; }
@@ -236,10 +224,8 @@
   .largeTitle { font-size: 43px; }
   .sectionSubtitle { letter-spacing: .09em; font-size: 13px; }
   .timeline { padding-left: 28px; }
-  .timeline::before { left: 10px; width: 18px; border-radius: 15px 0 0 15px; }
   .roleCard { padding: 20px; }
   .roleCard:nth-child(2) { margin-left: 0; }
-  .roleCard:nth-child(2)::before { content: none; }
   .roleTop { gap: 13px; }
   .companyMark { width: 53px; height: 59px; border-radius: 11px; }
   .onusMark { width: 37px; height: 37px; border-width: 8px; }
@@ -309,7 +295,6 @@
   .largeTitle { font-size: 46px; }
   .sectionSubtitle { margin-top: 13px; letter-spacing: .07em; }
   .timeline { padding-left: 22px; gap: 24px; }
-  .timeline::before { left: 2px; top: 71px; width: 20px; height: calc(50% + 12px); border-radius: 20px 0 0 20px; }
   .roleCard { padding: 22px 18px 18px; border-radius: 17px; }
   .roleTop { gap: 16px; }
   .companyMark { width: 60px; height: 65px; }
@@ -322,11 +307,6 @@
   .roleLocation { font-size: 9px; padding-left: 16px; }
   .timelineDot { width: 14px; height: 14px; left: -8px; top: 64px; }
   .experienceBackdrop { opacity: .4; }
-  .credentials { margin-top: 27px; }
-  .credentials summary { padding: 16px; gap: 9px; font-size: 11px; }
-  .credentials summary > span { font-size: 0; gap: 0; }
-  .credentials summary > span > span { font-size: 19px; }
-  .credentialsContent { grid-template-columns: 1fr; gap: 27px; padding: 10px 18px 22px; font-size: 12px; }
   .projects { padding-block: 65px 45px; }
   .projectSwitcher { gap: 7px; padding-bottom: 29px; }
   .projectSwitcher > span { width: 100%; margin-bottom: 5px; }
