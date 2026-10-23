@@ -46,7 +46,19 @@ export function TimelineConnector() {
     };
     host.addEventListener("transitionrun", onTransition);
     host.addEventListener("transitionend", draw);
+    // Re-sync once fonts and images settle and after the reveal slide, so a slow or cached load never leaves a gap.
+    const settle = () => {
+      draw();
+      onTransition();
+    };
+    document.fonts?.ready.then(settle);
+    window.addEventListener("load", settle);
+    window.addEventListener("resize", draw);
+    const timers = [400, 1200, 2500].map((ms) => window.setTimeout(draw, ms));
     return () => {
+      timers.forEach(clearTimeout);
+      window.removeEventListener("load", settle);
+      window.removeEventListener("resize", draw);
       ro.disconnect();
       cancelAnimationFrame(raf);
       host.removeEventListener("transitionrun", onTransition);
