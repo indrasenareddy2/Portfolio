@@ -1,0 +1,18 @@
+.scene { background: radial-gradient(ellipse at 92% 50%, #06344870, transparent 53%); }
+.grid { position: absolute; inset: 0; opacity: .17; background-image: linear-gradient(#26758935 1px, transparent 1px), linear-gradient(90deg, #26758935 1px, transparent 1px); background-size: 64px 64px; mask-image: linear-gradient(90deg, transparent 30%, #000); }
+.halo { position: absolute; width: 560px; height: 560px; right: -140px; top: 14%; border: 1px solid #1ba8c021; border-radius: 50%; box-shadow: 0 0 140px #05677b20, inset 0 0 130px #08567320; }
+.network { position: absolute; right: -1%; bottom: 4%; width: min(52%, 740px); height: auto; color: #1ccfe0; opacity: .6; filter: drop-shadow(0 0 9px #1ca3be40); }
+.about .network { bottom: 1%; }
+.experience .network { left: -5%; bottom: -9%; width: 49%; opacity: .28; transform: rotate(-12deg); }
+.experience .halo { left: -280px; right: auto; }
+.projects { background: radial-gradient(ellipse at 70% 30%, #08284090, transparent 65%); }
+.projects .network { width: 65%; opacity: .11; }
+.globe { position: absolute; bottom: -12%; right: -12%; width: min(64%, 950px); color: #28b9e2; opacity: .25; filter: drop-shadow(0 0 20px #1781ac40); }
+.contact .halo { top: auto; bottom: -20%; width: 850px; height: 850px; right: -330px; }
+@media (max-width: 640px) {
+  .network { right: -5%; bottom: -1%; width: 105%; opacity: .45; }
+  .about .network { bottom: 0; }
+  .grid { background-size: 42px 42px; mask-image: linear-gradient(180deg, transparent, #000); }
+  .experience .network { width: 125%; left: -30%; opacity: .12; }
+  .globe { width: 135%; max-width: none; bottom: -7%; right: -35%; opacity: .3; }
+}

@@ -1,0 +1,16 @@
+import type { MetadataRoute } from "next";
+import { projects } from "@/data/projects";
+import { SITE_URL } from "@/lib/site";
+
+export const dynamic = "force-static";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  return [
+    { url: `${SITE_URL}/`, changeFrequency: "monthly", priority: 1 },
+    ...projects.map((p) => ({
+      url: `${SITE_URL}/projects/${p.slug}/`,
+      changeFrequency: "monthly" as const,
+      priority: p.tier === "flagship" ? 0.8 : 0.6,
+    })),
+  ];
+}

@@ -1,0 +1,101 @@
+.section { position: relative; isolation: isolate; overflow: hidden; padding-block: 90px 70px; background: radial-gradient(ellipse at 10% 100%, #04546728, transparent 45%), radial-gradient(ellipse at 100% 15%, #06516a24, transparent 48%); }
+.inner { width: 100%; max-width: var(--page-max); margin-inline: auto; padding-inline: var(--page-pad); }
+.eyebrow { color: #a2bbdb; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: .31em; font-size: 12px; }
+.eyebrow span { color: #00e6ed; margin-right: 14px; }
+.heading h2 { font-weight: 650; font-size: clamp(32px, 3.5vw, 54px); letter-spacing: -.035em; line-height: 1.12; margin-top: 24px; }
+.heading h2 span { color: #00dae7; }
+.accent { display: block; margin-top: 26px; width: 52px; height: 2px; background: #00e7e2; }
+.heading > p:last-child { margin-top: 20px; font-size: 17px; line-height: 1.7; color: #a5bddc; }
+.ecosystem { display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr); gap: 45px; align-items: center; margin-top: 8px; }
+.orbit { position: relative; min-width: 0; aspect-ratio: 900 / 540; margin-top: 45px; margin-left: -25px; }
+.orbitLines { width: 100%; height: 100%; position: absolute; inset: 0; opacity: .8; }
+.orbitTool { position: absolute; display: inline-flex; align-items: center; justify-content: center; gap: 11px; left: var(--tool-x); top: var(--tool-y); transform: translate(-50%, -50%); border: 1px solid #31547285; border-bottom-color: #227eac8c; border-radius: 999px; padding: 15px 20px; background: linear-gradient(140deg, #0b2135d9, #050c17 75%); color: #e7effb; box-shadow: inset 0 1px #ffffff08; font-size: clamp(11px, 1.1vw, 16px); white-space: nowrap; cursor: pointer; transition: border-color .2s, background .2s, box-shadow .2s; }
+.orbitTool > svg { flex-shrink: 0; width: 29px; height: 29px; color: #00dfe7; }
+.orbitTool[data-tool="MongoDB"] > svg, .orbitTool[data-tool="Node.js"] > svg { color: #25ef7f; }
+.orbitTool[data-tool="LangChain"] > svg { color: #83aaf2; }
+.orbitTool[data-tool="MongoDB Vector Search"] > svg { color: #6fb5f9; }
+.orbitTool[data-tool="GCP"] > svg { color: #67a6ff; }
+.orbitTool:hover { border-color: #31cedd; box-shadow: 0 0 20px #00dded1b; }
+.orbitTool[aria-pressed="true"] { border-color: #00e1f2; border-right-color: #6277ff; border-bottom-color: #5b83ff; background: linear-gradient(130deg, #06465d, #0a1931 70%, #18265b); box-shadow: 0 0 20px #00c8f349, inset 0 0 13px #00c8f324; }
+.centerTool { --tool-x: 45%; --tool-y: 47%; padding: 21px 26px; font-size: clamp(14px, 1.35vw, 20px); }
+.centerTool > svg { width: 34px; height: 34px; }
+.pythonMark { font-weight: 750; font-size: 24px; letter-spacing: -.13em; padding-right: 3px; background: linear-gradient(140deg, #55b7f7 45%, #ffda56 55%); color: transparent; background-clip: text; line-height: 1; }
+.awsMark { font-size: 19px; letter-spacing: -.04em; line-height: 1.1; border-bottom: 2px solid #ffb83f; border-radius: 0 0 50% 50%; padding-bottom: 3px; }
+.selected { position: relative; margin-top: -40px; min-width: 0; border: 1px solid #15bfe4; border-right-color: #6b6ff3; border-bottom-color: #7660d7; border-radius: 23px; background: linear-gradient(120deg, #041522e8, #050d19ed 65%, #111835); box-shadow: 0 0 22px #009cdb24, inset 0 0 25px #1c71bb13; padding: 32px; }
+.cardLabel { text-transform: uppercase; letter-spacing: .25em; color: #b5d1ef; font-family: var(--font-mono); font-size: 10px; }
+.selected h3 { font-size: clamp(28px, 2.6vw, 40px); font-weight: 600; letter-spacing: -.04em; line-height: 1.2; overflow-wrap: anywhere; margin-block: 17px 35px; }
+.usedIn { display: grid; gap: 10px; margin-top: 15px; }
+.usedIn a { display: flex; align-items: center; justify-content: space-between; gap: 17px; border: 1px solid #3f678d6b; border-radius: 12px; padding: 15px 17px; background: #0a172775; color: #e4edf8; font-size: 13px; line-height: 1.5; transition: border-color .2s, color .2s; }
+.usedIn a:hover { border-color: #28d5ea; color: #5eeaf6; }
+.usedIn svg { flex-shrink: 0; color: #84a7d1; }
+.usedIn small { display: block; color: #7896b7; font-size: 9px; margin-top: 5px; }
+.usedIn + .cardLabel { margin-top: 29px; }
+.related { display: flex; flex-wrap: wrap; gap: 3px 8px; margin-top: 14px; padding: 16px; border: 1px solid #23405c77; border-radius: 13px; background: #091627a8; }
+.related button { color: #aac6e4; font-size: 12px; line-height: 1.9; text-align: left; cursor: pointer; }
+.related button:not(:last-child)::after { content: " ·"; margin-left: 7px; color: #4c719b; }
+.related button:hover { color: #19e9ee; text-decoration: underline; text-underline-offset: 3px; }
+.noProject { margin-top: 17px; font-size: 13px; color: #9db3ce; line-height: 1.8; }
+.allTools { margin-top: 55px; border: 1px solid #28475e77; border-radius: 16px; background: #071422bb; }
+.allTools > summary { cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 21px 24px; font-size: 14px; color: #cde3f6; }
+.allTools > summary::-webkit-details-marker { display: none; }
+.allTools > summary > span { display: flex; gap: 24px; align-items: center; color: #94adc8; font-size: 11px; }
+.allTools > summary > span > span { font-size: 20px; color: #5ae6ef; }
+.catalogIntro { color: #8da9c5; padding: 0 24px; font-size: 12px; line-height: 1.8; }
+.toolGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 23px; padding: 24px; }
+.cluster { min-width: 0; padding: 18px; border: 1px solid #24415a88; border-radius: 13px; background: #06101d; }
+.cluster h3 { font-size: 13px; font-weight: 550; color: #c3d8ec; }
+.cluster ul { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 15px; }
+.cluster button { display: inline-flex; gap: 9px; padding: 6px 9px; border: 1px solid #28465d; border-radius: 8px; font-size: 11px; color: #9ebad4; cursor: pointer; text-align: left; }
+.cluster button:hover { border-color: #39b7c8; color: white; }
+.cluster button[aria-pressed="true"] { border-color: #00d8e8; background: #063a4b; color: white; }
+.cluster button > span { font-size: 9px; color: #729aba; }
+@media (max-width: 1200px) {
+  .ecosystem { gap: 30px; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); }
+  .orbitTool { padding: 13px 15px; gap: 9px; }
+  .orbitTool > svg { width: 24px; height: 24px; }
+  .centerTool { padding: 20px; }
+  .selected { padding: 25px; margin-top: -15px; }
+  .selected h3 { margin-bottom: 29px; }
+  .toolGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .ecosystem { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 20px; }
+  .orbit { margin-left: -10px; }
+  .orbitTool { font-size: 10px; padding: 11px; gap: 6px; }
+  .orbitTool > svg { width: 20px; height: 20px; }
+  .centerTool { padding: 14px; font-size: 12px; }
+  .pythonMark { font-size: 20px; }
+  .awsMark { font-size: 15px; }
+  .selected { padding: 22px; margin-top: 10px; }
+  .selected h3 { font-size: 28px; margin-bottom: 24px; }
+  .usedIn a { padding: 12px; font-size: 12px; }
+  .related { padding: 12px; }
+  .related button { font-size: 11px; }
+}
+@media (max-width: 640px) {
+  .section { padding-block: 65px 45px; }
+  .heading h2 { font-size: 35px; }
+  .heading > p:last-child { font-size: 14px; }
+  .eyebrow { font-size: 10px; }
+  .ecosystem { grid-template-columns: minmax(0, 1fr); gap: 28px; margin-top: 12px; }
+  .orbit { margin-top: 26px; margin-left: 0; aspect-ratio: 1.25; }
+  .orbitLines { top: 5%; height: 90%; }
+  .orbitTool { padding: 11px 10px; font-size: 10px; gap: 5px; }
+  .orbitTool > svg { width: 19px; height: 19px; }
+  .orbitTool[data-tool="MongoDB Vector Search"] { --tool-x: 73% !important; font-size: 9px; }
+  .orbitTool[data-tool="MongoDB"] { --tool-x: 80% !important; }
+  .orbitTool[data-tool="LangChain"] { --tool-x: 76% !important; }
+  .orbitTool[data-tool="React"] { --tool-x: 15% !important; }
+  .centerTool { --tool-y: 46%; padding: 17px; font-size: 13px; }
+  .centerTool > svg { width: 24px; height: 24px; }
+  .selected { margin-top: 18px; padding: 26px 23px; border-radius: 18px; }
+  .selected h3 { font-size: 34px; margin-bottom: 30px; }
+  .usedIn a { padding: 14px 15px; font-size: 13px; }
+  .related { padding: 15px; }
+  .related button { font-size: 12px; }
+  .allTools { margin-top: 27px; }
+  .allTools > summary { font-size: 12px; padding: 17px; gap: 10px; }
+  .allTools > summary > span { font-size: 0; gap: 0; }
+  .catalogIntro { padding-inline: 17px; font-size: 11px; }
+  .toolGrid { grid-template-columns: minmax(0, 1fr); padding: 17px; gap: 14px; }
+}

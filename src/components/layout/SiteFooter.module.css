@@ -1,0 +1,60 @@
+.footer { position: relative; isolation: isolate; background: transparent; }
+.hero { position: relative; overflow: hidden; min-height: clamp(365px, 28vw, 560px); }
+.scene { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; container-type: size; -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 150px); mask-image: linear-gradient(180deg, transparent 0, #000 150px); }
+.scene::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #070b1366, transparent 55%); }
+/* Cover box that keeps the artwork's aspect ratio, anchored bottom-right so the robot and planet stay in frame */
+.art { position: absolute; right: 0; bottom: 0; aspect-ratio: 2172 / 606; width: max(100cqw, 358.4cqh); }
+.art img { display: block; width: 100%; height: 100%; }
+.star { position: absolute; border-radius: 50%; background: #dfe6ff; box-shadow: 0 0 4px #b9c6ff99; animation: twinkle 4s ease-in-out infinite; }
+.robotEye { position: absolute; width: 2.4%; aspect-ratio: 1; translate: -50% -50%; border-radius: 50%; background: radial-gradient(closest-side, #8ff6ff88, #00d9ff33 55%, transparent); mix-blend-mode: screen; animation: eye 3.6s ease-in-out infinite; }
+.planetGlow { position: absolute; width: 34%; aspect-ratio: 2.4; translate: -50% -50%; border-radius: 50%; background: radial-gradient(closest-side, #8b5cf633, #3b82f61a 55%, transparent); mix-blend-mode: screen; animation: breathe 7s ease-in-out infinite; }
+@keyframes twinkle { 0%, 100% { opacity: .1; } 50% { opacity: .75; } }
+@keyframes eye { 0%, 100% { opacity: .55; scale: .9; } 50% { opacity: 1; scale: 1.15; } }
+@keyframes breathe { 0%, 100% { opacity: .5; } 50% { opacity: 1; } }
+.inner { width: 100%; max-width: var(--page-max); margin-inline: auto; padding-inline: var(--page-pad); }
+.hero .inner { padding-top: clamp(37px, 4.3vw, 78px); padding-bottom: 90px; }
+.brand { position: relative; display: inline-flex; align-items: center; font-size: 20px; font-weight: 550; line-height: 1; letter-spacing: .46em; color: #eaf1ff; padding-block: 4px; }
+.brand span { position: absolute; top: -3px; right: 0; width: 8px; height: 8px; border-radius: 50%; background: #00ddeb; box-shadow: 0 0 13px #00ddeb40; }
+.copy { margin-top: clamp(53px, 4.8vw, 94px); position: relative; max-width: 690px; }
+.copy h2 { font-size: clamp(28px, 2.5vw, 47px); font-weight: 650; line-height: 1.2; letter-spacing: -.012em; }
+.copy h2 > span { display: block; font-size: clamp(36px, 3.35vw, 65px); line-height: 1.15; margin-top: 1px; background: linear-gradient(100deg, #00dce5 2%, #51c4ef 43%, #ac64eb 78%, #d9b6e8 100%); background-clip: text; color: transparent; width: fit-content; }
+.copy h2 > span b { color: #fff; -webkit-text-fill-color: #fff; font-weight: inherit; }
+.accent { display: block; width: 49px; height: 2px; background: linear-gradient(90deg, #00d8e6, #b055dd); margin-top: 23px; }
+.tagline { display: flex; align-items: center; flex-wrap: wrap; gap: 19px; color: #b0b8d5; font-size: clamp(12px, 1.1vw, 20px); letter-spacing: .24em; line-height: 1.8; margin-top: 21px; }
+.tagline i { color: #6b7a9e; font-style: normal; }
+.bottom { position: relative; border-top: 1px solid #9aabcf33; background: linear-gradient(180deg, #ffffff05, transparent 70%); }
+/* The light point travelling along the divider, as in the reference */
+.bottom::before { content: ""; position: absolute; top: -2px; left: 50.5%; width: 180px; height: 3px; translate: -50% 0; border-radius: 50%; background: radial-gradient(closest-side, #ffffff, #6d8dff 40%, transparent); filter: blur(.5px); box-shadow: 0 0 18px 4px #6d8dff66; }
+.bottom .inner { min-height: 83px; padding-block: 19px; display: flex; align-items: center; justify-content: space-between; gap: 25px; }
+.copyright { color: #8791a8; font-size: 11px; line-height: 1.8; }
+.backToTop { display: grid; place-items: center; flex-shrink: 0; width: 46px; height: 46px; border: 1px solid transparent; border-radius: 50%; background: linear-gradient(#070b13, #070b13) padding-box, linear-gradient(135deg, #bc56fd, #9d65ff 52%, #26c2eb) border-box; color: #e2edff; transition: box-shadow .2s, transform .2s; }
+.backToTop:hover { transform: translateY(-3px); box-shadow: 0 0 18px #707aff3b; }
+@media (min-width: 1740px) { .hero .inner { padding-top: 78px; } }
+@media (max-width: 900px) {
+  .hero { min-height: 370px; }
+  .hero .inner { padding-top: 40px; }
+  .copy { margin-top: 61px; max-width: 470px; }
+  .copy h2 { font-size: 28px; }
+  .copy h2 > span { font-size: 37px; }
+  .tagline { font-size: 12px; gap: 14px; }
+  .scene::after { background: linear-gradient(90deg, #070b13b3, #070b1340 55%, transparent); }
+  .copyright { font-size: 10px; }
+}
+@media (max-width: 640px) {
+  .hero { min-height: 490px; }
+  .hero .inner { padding-top: 36px; padding-bottom: 220px; }
+  .brand { font-size: 18px; }
+  .brand span { width: 7px; height: 7px; }
+  .copy { margin-top: 43px; }
+  .copy h2 { font-size: 27px; }
+  .copy h2 > span { font-size: clamp(30px, 8.3vw, 43px); max-width: 400px; }
+  .copy h2 > span b { color: #fff; -webkit-text-fill-color: #fff; font-weight: inherit; }
+.accent { margin-top: 20px; width: 43px; }
+  .tagline { font-size: 11px; letter-spacing: .19em; margin-top: 17px; gap: 12px; }
+  .scene { top: auto; height: 300px; }
+  .scene::after { background: linear-gradient(180deg, #070b13, #070b132e 30%, transparent 70%); }
+  .bottom .inner { min-height: 84px; gap: 16px; }
+  .copyright { font-size: 10.5px; }
+  .backToTop { width: 40px; height: 40px; }
+}
+@media (prefers-reduced-motion: reduce) { .backToTop { transition: none; } .backToTop:hover { transform: none; } .star, .robotEye, .planetGlow { animation: none; } }
